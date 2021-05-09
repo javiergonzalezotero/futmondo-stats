@@ -1,5 +1,5 @@
 import React from "react";
-import { useTable, useSortBy, usePagination } from 'react-table'
+import { useTable, useGlobalFilter, useSortBy, usePagination } from 'react-table'
 import Numeral from "numeral";
 import "numeral/locales/es-es";
 import MaUTable from '@material-ui/core/Table'
@@ -9,6 +9,11 @@ import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
 import TableSortLabel from '@material-ui/core/TableSortLabel'
 import TablePagination from './TablePagination'
+import GlobalFilter from './GlobalFilter'
+import Date from './Date'
+import { withStyles, makeStyles } from '@material-ui/core/styles';
+import { messages } from '../lib/messages'
+
 
 Numeral.locale('es-es');
 
@@ -17,11 +22,18 @@ const getColumns = function (data) {
     const column =
       Object.keys(data[0]).map(key => {
         let colConfig = {
-          Header: key,
-          accessor: key
+          Header: messages[key] || key,
+          accessor: key,
+          align: 'left',
         };
         if (Number.isInteger(data[0][key])) {
-          colConfig.Cell = row => <div style={{ textAlign: "right" }}>{Numeral(row.value).format('0,0')}</div>;
+          colConfig.Cell = row => <div style={{ textAlign: "right" }}>{Numeral(row.value).format('0,0')}</div>
+          colConfig.align = 'right'
+          colConfig.sortType = (rowA, rowB, columnId) => {
+            return rowA.original[columnId] - rowB.original[columnId];
+          }
+        } else if (key === 'date') {
+          colConfig.Cell = row => <Date dateString={row.value}></Date>
         }
         return colConfig;
       });
@@ -30,6 +42,13 @@ const getColumns = function (data) {
     return [];
   }
 }
+
+const StyledTableCell = withStyles((theme) => ({
+  head: {
+    fontWeight: 'bold',
+    textTransform: 'capitalize',
+  }
+}))(TableCell);
 
 export default function SimpleTable({ param, pagination }) {
 
@@ -54,25 +73,33 @@ export default function SimpleTable({ param, pagination }) {
     nextPage,
     previousPage,
     setPageSize,
-    state: { pageIndex, pageSize },
-  } = useTable({ columns, data }, useSortBy, usePagination)
+    preGlobalFilteredRows,
+    setGlobalFilter,
+    state: { pageIndex, pageSize, globalFilter },
+  } = useTable({ columns, data }, useGlobalFilter, useSortBy, usePagination)
 
   const rowsToShow = pagination ? page : rows;
 
   return (
     <>
-      <MaUTable {...getTableProps()}>
+      {pagination && <GlobalFilter
+        preGlobalFilteredRows={preGlobalFilteredRows}
+        globalFilter={globalFilter}
+        setGlobalFilter={setGlobalFilter}
+      />
+      }
+      <MaUTable size="small" {...getTableProps()}>
         <TableHead>
           {headerGroups.map(headerGroup => (
             <TableRow {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map(column => (
-                <TableCell {...column.getHeaderProps(column.getSortByToggleProps())}>
+                <StyledTableCell align={column.align} {...column.getHeaderProps(column.getSortByToggleProps())}>
                   {column.render('Header')}
                   <TableSortLabel
                     active={column.isSorted}
                     direction={column.isSortedDesc ? 'desc' : 'asc'}
                   />
-                </TableCell>
+                </StyledTableCell>
               ))}
             </TableRow>
           ))}

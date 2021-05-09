@@ -10,10 +10,10 @@ class SimpleChart extends Component {
             options: {
                 chart: {
                     id: props.id,
-                    animations: { 
+                    animations: {
                         speed: 350,
                         animateGradually: {
-                            delay: 40
+                            delay: 35
                         }
                     }
                 },
