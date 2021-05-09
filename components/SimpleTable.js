@@ -2,6 +2,13 @@ import React from "react";
 import { useTable, useSortBy, usePagination } from 'react-table'
 import Numeral from "numeral";
 import "numeral/locales/es-es";
+import MaUTable from '@material-ui/core/Table'
+import TableBody from '@material-ui/core/TableBody'
+import TableCell from '@material-ui/core/TableCell'
+import TableHead from '@material-ui/core/TableHead'
+import TableRow from '@material-ui/core/TableRow'
+import TableSortLabel from '@material-ui/core/TableSortLabel'
+import TablePagination from './TablePagination'
 
 Numeral.locale('es-es');
 
@@ -54,95 +61,48 @@ export default function SimpleTable({ param, pagination }) {
 
   return (
     <>
-      <table {...getTableProps()} style={{ border: 'solid 1px blue' }}>
-        <thead>
+      <MaUTable {...getTableProps()}>
+        <TableHead>
           {headerGroups.map(headerGroup => (
-            <tr {...headerGroup.getHeaderGroupProps()}>
+            <TableRow {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map(column => (
-                <th
-                  {...column.getHeaderProps(column.getSortByToggleProps())}
-                  style={{
-                    borderBottom: 'solid 3px red',
-                    background: 'aliceblue',
-                    color: 'black',
-                    fontWeight: 'bold',
-                  }}
-                >
+                <TableCell {...column.getHeaderProps(column.getSortByToggleProps())}>
                   {column.render('Header')}
-                </th>
+                  <TableSortLabel
+                    active={column.isSorted}
+                    direction={column.isSortedDesc ? 'desc' : 'asc'}
+                  />
+                </TableCell>
               ))}
-            </tr>
+            </TableRow>
           ))}
-        </thead>
-        <tbody {...getTableBodyProps()}>
+        </TableHead>
+        <TableBody {...getTableBodyProps()}>
           {rowsToShow.map(row => {
             prepareRow(row)
             return (
-              <tr {...row.getRowProps()}>
+              <TableRow {...row.getRowProps()}>
                 {row.cells.map(cell => {
                   return (
-                    <td
-                      {...cell.getCellProps()}
-                      style={{
-                        padding: '10px',
-                        border: 'solid 1px gray',
-                        background: 'papayawhip',
-                      }}
-                    >
+                    <TableCell {...cell.getCellProps()}>
                       {cell.render('Cell')}
-                    </td>
+                    </TableCell>
                   )
                 })}
-              </tr>
+              </TableRow>
             )
           })}
-        </tbody>
-      </table>
-      {pagination &&
-        (<div className="pagination">
-          <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
-            {'<<'}
-          </button>{' '}
-          <button onClick={() => previousPage()} disabled={!canPreviousPage}>
-            {'<'}
-          </button>{' '}
-          <button onClick={() => nextPage()} disabled={!canNextPage}>
-            {'>'}
-          </button>{' '}
-          <button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>
-            {'>>'}
-          </button>{' '}
-          <span>
-            Página{' '}
-            <strong>
-              {pageIndex + 1} de {pageOptions.length}
-            </strong>{' '}
-          </span>
-          <span>
-            | Ir a página:{' '}
-            <input
-              type="number"
-              defaultValue={pageIndex + 1}
-              onChange={e => {
-                const page = e.target.value ? Number(e.target.value) - 1 : 0
-                gotoPage(page)
-              }}
-              style={{ width: '100px' }}
-            />
-          </span>{' '}
-          <select
-            value={pageSize}
-            onChange={e => {
-              setPageSize(Number(e.target.value))
-            }}
-          >
-            {[10, 20, 30, 40, 50, '*'].map(pageSize => (
-              <option key={pageSize} value={pageSize == '*' ? rows.length : pageSize}>
-                Mostrar {pageSize == '*' ? `todo (${rows.length})` : pageSize}
-              </option>
-            ))}
-          </select>
-        </div>)}
+        </TableBody>
+        {pagination &&
+          <TablePagination
+            count={data.length}
+            rowsPerPage={pageSize}
+            page={pageIndex}
+            gotoPage={gotoPage}
+            setPageSize={setPageSize}>
+          </TablePagination>
+        }
+      </MaUTable>
     </>
   )
 }

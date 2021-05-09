@@ -25,7 +25,6 @@ export default function Home({ clauses, clausesGrouped, points, accPoints, accPo
         <title>Futmondo Stats</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
       <SimpleTable param={clauses} pagination={true}></SimpleTable>
       <SimpleTable param={clausesGrouped} pagination={false}></SimpleTable>
       <SimpleChart id="points" series={points} title="Puntos"></SimpleChart>
