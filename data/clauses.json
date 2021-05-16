@@ -1,5 +1,579 @@
 [
   {
+    "payer": "La Cajina",
+    "seller": "Javier González Otero",
+    "amount": 193530493,
+    "player": "Oyarzabal",
+    "date": "2021-05-15T21:59:59.320Z"
+  },
+  {
+    "payer": "Javier González Otero",
+    "seller": "La Cajina",
+    "amount": 4945227,
+    "player": "Pere Pons",
+    "date": "2021-05-15T21:59:52.922Z"
+  },
+  {
+    "payer": "La Cajina",
+    "seller": "cezarcesareo",
+    "amount": 116079043,
+    "player": "Courtois",
+    "date": "2021-05-15T21:59:52.728Z"
+  },
+  {
+    "payer": "Javier González Otero",
+    "seller": "La Cajina",
+    "amount": 72213744,
+    "player": "Emerson",
+    "date": "2021-05-15T21:59:39.538Z"
+  },
+  {
+    "payer": "Javier González Otero",
+    "seller": "La Cajina",
+    "amount": 81069113,
+    "player": "Piqué",
+    "date": "2021-05-15T21:59:36.432Z"
+  },
+  {
+    "payer": "El equipo de la concordia y los abrazos",
+    "seller": "Javier González Otero",
+    "amount": 6280098,
+    "player": "Thierry Correia",
+    "date": "2021-05-15T21:59:31.957Z"
+  },
+  {
+    "payer": "fredsan90",
+    "seller": "Javier González Otero",
+    "amount": 7008941,
+    "player": "Gazzaniga",
+    "date": "2021-05-15T21:59:17.074Z"
+  },
+  {
+    "payer": "dgonzalezrodal",
+    "seller": "La Cajina",
+    "amount": 32876833,
+    "player": "Gabriel Paulista",
+    "date": "2021-05-15T21:59:16.374Z"
+  },
+  {
+    "payer": "La Cajina",
+    "seller": "cezarcesareo",
+    "amount": 4545119,
+    "player": "Dani Gómez",
+    "date": "2021-05-15T21:59:05.049Z"
+  },
+  {
+    "payer": "Javier González Otero",
+    "seller": "La Cajina",
+    "amount": 135233842,
+    "player": "Isak",
+    "date": "2021-05-15T21:58:55.519Z"
+  },
+  {
+    "payer": "La Cajina",
+    "seller": "dgonzalezrodal",
+    "amount": 21754304,
+    "player": "Lejeune",
+    "date": "2021-05-15T21:58:33.453Z"
+  },
+  {
+    "payer": "La Cajina",
+    "seller": "dgonzalezrodal",
+    "amount": 17264408,
+    "player": "Mathías Olivera",
+    "date": "2021-05-15T21:58:29.602Z"
+  },
+  {
+    "payer": "El equipo de la concordia y los abrazos",
+    "seller": "La Cajina",
+    "amount": 7041796,
+    "player": "Rober Correa",
+    "date": "2021-05-15T21:58:17.120Z"
+  },
+  {
+    "payer": "Adrián Pérez Diéguez",
+    "seller": "La Cajina",
+    "amount": 13772435,
+    "player": "Lucas Torró",
+    "date": "2021-05-15T21:54:28.348Z"
+  },
+  {
+    "payer": "Adrián Pérez Diéguez",
+    "seller": "Javier González Otero",
+    "amount": 86003030,
+    "player": "Negredo",
+    "date": "2021-05-15T21:51:52.993Z"
+  },
+  {
+    "payer": "Eloi Rodrigañez F",
+    "seller": "AaaaaaRaúl Martínez Gutiérrez",
+    "amount": 8543537,
+    "player": "Yeremi Pino",
+    "date": "2021-05-15T21:43:00.019Z"
+  },
+  {
+    "payer": "fredsan90",
+    "seller": "Eloi Rodrigañez F",
+    "amount": 11604093,
+    "player": "Perea",
+    "date": "2021-05-15T21:42:46.348Z"
+  },
+  {
+    "payer": "fredsan90",
+    "seller": "Fer García Casás",
+    "amount": 8853774,
+    "player": "Barrenetxea",
+    "date": "2021-05-15T21:41:41.562Z"
+  },
+  {
+    "payer": "dgonzalezrodal",
+    "seller": "Adrián Pérez Diéguez",
+    "amount": 102648953,
+    "player": "Nolito",
+    "date": "2021-05-15T21:19:35.997Z"
+  },
+  {
+    "payer": "Adrián Pérez Diéguez",
+    "seller": "Daniel Colmeiro Echeverría",
+    "amount": 75530870,
+    "player": "Santi Mina",
+    "date": "2021-05-15T21:13:10.695Z"
+  },
+  {
+    "payer": "cezarcesareo",
+    "seller": "dgonzalezrodal",
+    "amount": 85374175,
+    "player": "Fidel",
+    "date": "2021-05-15T21:09:25.791Z"
+  },
+  {
+    "payer": "Jesus G. V.",
+    "seller": "fredsan90",
+    "amount": 28449476,
+    "player": "Mikel Rico",
+    "date": "2021-05-15T21:09:04.673Z"
+  },
+  {
+    "payer": "Jesus G. V.",
+    "seller": "dgonzalezrodal",
+    "amount": 24158467,
+    "player": "Weissman",
+    "date": "2021-05-15T21:08:44.115Z"
+  },
+  {
+    "payer": "El equipo de la concordia y los abrazos",
+    "seller": "Jesus G. V.",
+    "amount": 85651633,
+    "player": "Denis Suárez",
+    "date": "2021-05-15T21:00:01.522Z"
+  },
+  {
+    "payer": "fredsan90",
+    "seller": "cezarcesareo",
+    "amount": 84705047,
+    "player": "Busquets",
+    "date": "2021-05-15T20:59:15.439Z"
+  },
+  {
+    "payer": "Chris Zas",
+    "seller": "Javier González Otero",
+    "amount": 45440745,
+    "player": "Borja Iglesias",
+    "date": "2021-05-15T20:58:09.182Z"
+  },
+  {
+    "payer": "Chris Zas",
+    "seller": "El equipo de la concordia y los abrazos",
+    "amount": 82499048,
+    "player": "Fernando Reges",
+    "date": "2021-05-15T20:53:54.076Z"
+  },
+  {
+    "payer": "cezarcesareo",
+    "seller": "fredsan90",
+    "amount": 96081517,
+    "player": "Berenguer",
+    "date": "2021-05-15T20:51:12.321Z"
+  },
+  {
+    "payer": "fredsan90",
+    "seller": "Chris Zas",
+    "amount": 163893203,
+    "player": "Pedri",
+    "date": "2021-05-15T20:49:39.655Z"
+  },
+  {
+    "payer": "Eloi Rodrigañez F",
+    "seller": "cezarcesareo",
+    "amount": 98288273,
+    "player": "Ferreiro",
+    "date": "2021-05-15T20:49:18.957Z"
+  },
+  {
+    "payer": "cezarcesareo",
+    "seller": "Daniel Colmeiro Echeverría",
+    "amount": 88336415,
+    "player": "Arambarri",
+    "date": "2021-05-15T20:38:11.305Z"
+  },
+  {
+    "payer": "La Cajina",
+    "seller": "cezarcesareo",
+    "amount": 67355694,
+    "player": "Acuña",
+    "date": "2021-05-15T20:33:34.371Z"
+  },
+  {
+    "payer": "cezarcesareo",
+    "seller": "Javier González Otero",
+    "amount": 156231554,
+    "player": "Jordi Alba",
+    "date": "2021-05-15T20:30:28.553Z"
+  },
+  {
+    "payer": "Alex Penedo",
+    "seller": "fredsan90",
+    "amount": 139975299,
+    "player": "En-Nesyri",
+    "date": "2021-05-15T20:26:58.751Z"
+  },
+  {
+    "payer": "Alex Penedo",
+    "seller": "cezarcesareo",
+    "amount": 172709143,
+    "player": "Modric",
+    "date": "2021-05-15T20:26:37.550Z"
+  },
+  {
+    "payer": "dgonzalezrodal",
+    "seller": "fredsan90",
+    "amount": 11848726,
+    "player": "Jon Morcillo",
+    "date": "2021-05-15T20:22:07.038Z"
+  },
+  {
+    "payer": "La Cajina",
+    "seller": "Alex Penedo",
+    "amount": 88097766,
+    "player": "Guedes",
+    "date": "2021-05-15T20:17:28.318Z"
+  },
+  {
+    "payer": "fredsan90",
+    "seller": "Adrián Pérez Diéguez",
+    "amount": 103472332,
+    "player": "Kike García",
+    "date": "2021-05-15T20:15:09.493Z"
+  },
+  {
+    "payer": "Chris Zas",
+    "seller": "Eloi Rodrigañez F",
+    "amount": 319424008,
+    "player": "Messi",
+    "date": "2021-05-15T20:07:52.790Z"
+  },
+  {
+    "payer": "La Cajina",
+    "seller": "Alex Penedo",
+    "amount": 221746518,
+    "player": "Gerard Moreno",
+    "date": "2021-05-15T20:06:37.412Z"
+  },
+  {
+    "payer": "El equipo de la concordia y los abrazos",
+    "seller": "La Cajina",
+    "amount": 243977543,
+    "player": "Benzema",
+    "date": "2021-05-15T20:06:20.175Z"
+  },
+  {
+    "payer": "Adrián Pérez Diéguez",
+    "seller": "Alex Penedo",
+    "amount": 30437534,
+    "player": "Óscar Plano",
+    "date": "2021-05-15T19:58:43.203Z"
+  },
+  {
+    "payer": "Adrián Pérez Diéguez",
+    "seller": "Alex Penedo",
+    "amount": 14953948,
+    "player": "Pulido",
+    "date": "2021-05-15T19:58:24.702Z"
+  },
+  {
+    "payer": "cezarcesareo",
+    "seller": "Chris Zas",
+    "amount": 200017662,
+    "player": "Luis Suárez",
+    "date": "2021-05-15T19:56:37.843Z"
+  },
+  {
+    "payer": "Adrián Pérez Diéguez",
+    "seller": "cezarcesareo",
+    "amount": 7845732,
+    "player": "Sancet",
+    "date": "2021-05-15T19:56:13.853Z"
+  },
+  {
+    "payer": "Alex Penedo",
+    "seller": "fredsan90",
+    "amount": 48550426,
+    "player": "Melero",
+    "date": "2021-05-15T19:53:51.375Z"
+  },
+  {
+    "payer": "Adrián Pérez Diéguez",
+    "seller": "fredsan90",
+    "amount": 40830722,
+    "player": "Budimir",
+    "date": "2021-05-15T19:52:56.246Z"
+  },
+  {
+    "payer": "Adrián Pérez Diéguez",
+    "seller": "cezarcesareo",
+    "amount": 120144711,
+    "player": "Rafa Mir",
+    "date": "2021-05-15T19:52:11.368Z"
+  },
+  {
+    "payer": "Alex Penedo",
+    "seller": "Adrián Pérez Diéguez",
+    "amount": 96133663,
+    "player": "Jorge De Frutos",
+    "date": "2021-05-15T19:48:44.024Z"
+  },
+  {
+    "payer": "AaaaaaRaúl Martínez Gutiérrez",
+    "seller": "Chris Zas",
+    "amount": 74882334,
+    "player": "Mario Hermoso",
+    "date": "2021-05-15T18:51:49.888Z"
+  },
+  {
+    "payer": "Jesus G. V.",
+    "seller": "AaaaaaRaúl Martínez Gutiérrez",
+    "amount": 105730404,
+    "player": "Koke",
+    "date": "2021-05-15T18:06:55.415Z"
+  },
+  {
+    "payer": "fredsan90",
+    "seller": "Jesus G. V.",
+    "amount": 83957689,
+    "player": "Savic",
+    "date": "2021-05-15T17:52:43.502Z"
+  },
+  {
+    "payer": "cezarcesareo",
+    "seller": "fredsan90",
+    "amount": 61759197,
+    "player": "Nacho",
+    "date": "2021-05-15T17:48:51.959Z"
+  },
+  {
+    "payer": "Daniel Colmeiro Echeverría",
+    "seller": "La Cajina",
+    "amount": 80154537,
+    "player": "Brais Méndez",
+    "date": "2021-05-15T16:17:09.925Z"
+  },
+  {
+    "payer": "Chris Zas",
+    "seller": "El equipo de la concordia y los abrazos",
+    "amount": 220487661,
+    "player": "Iago Aspas",
+    "date": "2021-05-15T16:12:52.487Z"
+  },
+  {
+    "payer": "Jose Esmorîs",
+    "seller": "Daniel Colmeiro Echeverría",
+    "amount": 43654984,
+    "player": "Moncayola",
+    "date": "2021-05-15T16:06:46.950Z"
+  },
+  {
+    "payer": "Eloi Rodrigañez F",
+    "seller": "dgonzalezrodal",
+    "amount": 10339521,
+    "player": "Battaglia",
+    "date": "2021-05-15T15:28:36.890Z"
+  },
+  {
+    "payer": "Jesus G. V.",
+    "seller": "La Cajina",
+    "amount": 17371874,
+    "player": "Claudio Bravo",
+    "date": "2021-05-15T14:13:53.277Z"
+  },
+  {
+    "payer": "Javier González Otero",
+    "seller": "Jose Esmorîs",
+    "amount": 5950902,
+    "player": "Fran Beltrán",
+    "date": "2021-05-15T13:45:40.311Z"
+  },
+  {
+    "payer": "Eloi Rodrigañez F",
+    "seller": "Jose Esmorîs",
+    "amount": 148587018,
+    "player": "Parejo",
+    "date": "2021-05-15T12:55:23.344Z"
+  },
+  {
+    "payer": "Jose Esmorîs",
+    "seller": "Eloi Rodrigañez F",
+    "amount": 151648888,
+    "player": "Canales",
+    "date": "2021-05-15T12:55:00.439Z"
+  },
+  {
+    "payer": "Eloi Rodrigañez F",
+    "seller": "Jesus G. V.",
+    "amount": 5862450,
+    "player": "Iván Villar",
+    "date": "2021-05-15T12:47:17.513Z"
+  },
+  {
+    "payer": "AaaaaaRaúl Martínez Gutiérrez",
+    "seller": "La Cajina",
+    "amount": 191212322,
+    "player": "Marcos Llorente",
+    "date": "2021-05-15T12:33:13.582Z"
+  },
+  {
+    "payer": "cezarcesareo",
+    "seller": "AaaaaaRaúl Martínez Gutiérrez",
+    "amount": 26846831,
+    "player": "Boyé",
+    "date": "2021-05-15T12:29:16.385Z"
+  },
+  {
+    "payer": "Eloi Rodrigañez F",
+    "seller": "Chris Zas",
+    "amount": 130629016,
+    "player": "Carrasco",
+    "date": "2021-05-14T13:30:33.647Z"
+  },
+  {
+    "payer": "dgonzalezrodal",
+    "seller": "AaaaaaRaúl Martínez Gutiérrez",
+    "amount": 14720035,
+    "player": "Villalibre",
+    "date": "2021-05-14T07:02:47.493Z"
+  },
+  {
+    "payer": "Javier González Otero",
+    "seller": "Eloi Rodrigañez F",
+    "amount": 37795740,
+    "player": "Militao",
+    "date": "2021-05-13T22:38:10.008Z"
+  },
+  {
+    "payer": "Jose Esmorîs",
+    "seller": "Adrián Pérez Diéguez",
+    "amount": 91302515,
+    "player": "Joselu",
+    "date": "2021-05-13T12:41:34.277Z"
+  },
+  {
+    "payer": "Jose Esmorîs",
+    "seller": "dgonzalezrodal",
+    "amount": 15485442,
+    "player": "Sandro",
+    "date": "2021-05-13T12:40:23.738Z"
+  },
+  {
+    "payer": "cezarcesareo",
+    "seller": "AaaaaaRaúl Martínez Gutiérrez",
+    "amount": 116250009,
+    "player": "Rafa Mir",
+    "date": "2021-05-10T22:00:07.177Z"
+  },
+  {
+    "payer": "Chris Zas",
+    "seller": "cezarcesareo",
+    "amount": 199900591,
+    "player": "Luis Suárez",
+    "date": "2021-05-10T21:59:59.772Z"
+  },
+  {
+    "payer": "La Cajina",
+    "seller": "Chris Zas",
+    "amount": 241709138,
+    "player": "Benzema",
+    "date": "2021-05-10T21:59:44.443Z"
+  },
+  {
+    "payer": "El equipo de la concordia y los abrazos",
+    "seller": "cezarcesareo",
+    "amount": 80715277,
+    "player": "Fernando Reges",
+    "date": "2021-05-10T21:59:33.919Z"
+  },
+  {
+    "payer": "El equipo de la concordia y los abrazos",
+    "seller": "La Cajina",
+    "amount": 209988249,
+    "player": "Iago Aspas",
+    "date": "2021-05-10T21:59:28.942Z"
+  },
+  {
+    "payer": "dgonzalezrodal",
+    "seller": "AaaaaaRaúl Martínez Gutiérrez",
+    "amount": 51159262,
+    "player": "Trigueros",
+    "date": "2021-05-10T21:56:16.166Z"
+  },
+  {
+    "payer": "AaaaaaRaúl Martínez Gutiérrez",
+    "seller": "Jesus G. V.",
+    "amount": 9072228,
+    "player": "Villalibre",
+    "date": "2021-05-10T21:17:48.856Z"
+  },
+  {
+    "payer": "AaaaaaRaúl Martínez Gutiérrez",
+    "seller": "Alex Penedo",
+    "amount": 10859093,
+    "player": "Aitor Ruibal",
+    "date": "2021-05-10T21:14:53.932Z"
+  },
+  {
+    "payer": "cezarcesareo",
+    "seller": "Alex Penedo",
+    "amount": 80314044,
+    "player": "Busquets",
+    "date": "2021-05-10T20:29:44.660Z"
+  },
+  {
+    "payer": "La Cajina",
+    "seller": "cezarcesareo",
+    "amount": 72005913,
+    "player": "Brais Méndez",
+    "date": "2021-05-10T20:17:30.648Z"
+  },
+  {
+    "payer": "Jesus G. V.",
+    "seller": "Jose Esmorîs",
+    "amount": 81053588,
+    "player": "Savic",
+    "date": "2021-05-10T07:08:34.489Z"
+  },
+  {
+    "payer": "Jesus G. V.",
+    "seller": "Fer García Casás",
+    "amount": 78721106,
+    "player": "Denis Suárez",
+    "date": "2021-05-10T07:05:01.202Z"
+  },
+  {
+    "payer": "Eloi Rodrigañez F",
+    "seller": "La Cajina",
+    "amount": 27294222,
+    "player": "Militao",
+    "date": "2021-05-09T20:52:00.748Z"
+  },
+  {
     "payer": "cezarcesareo",
     "seller": "Chris Zas",
     "amount": 76042367,

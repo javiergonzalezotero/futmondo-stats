@@ -24,7 +24,10 @@ class SimpleChart extends Component {
                     '#F86624', '#2E294E', '#D4526E', '#C4BBAF', '#7D02EB', '#8D5B4C', '#4CAF50'],
                 xaxis: {
                     categories: categories
-                }
+                },
+                yaxis: {
+                    decimalsInFloat: 1,
+                },
             },
             series: props.series
         }

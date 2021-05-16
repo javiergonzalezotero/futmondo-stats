@@ -5,6 +5,7 @@ const config = require('./config');
 const endpointRounds = "http://www.futmondo.com/1/userteam/rounds";
 const endpointRound = "http://www.futmondo.com/1/ranking/round";
 const endpointLocker = "http://www.futmondo.com/2/locker/news";
+const endpointLineUp = "http://www.futmondo.com/1/userteam/roundlineup";
 const championshipId = config.championshipId;
 const userteamId = config.userteamId;
 const requestConfig = {
@@ -21,6 +22,18 @@ function getRound(roundNumber) {
             "championshipId": championshipId,
             "userteamId": userteamId,
             "roundNumber": roundNumber
+        }
+    }, requestConfig);
+}
+
+function getRoundLineUp(userId, roundNumber) {
+    return axios.post(endpointLineUp, {
+        header: '',
+        answer: "",
+        query: {
+            "championshipId": championshipId,
+            "userteamId": userId,
+            "round": roundNumber
         }
     }, requestConfig);
 }
@@ -49,7 +62,7 @@ async function loadRankings() {
     let rounds = res.data.answer.reduce((obj, round) => (obj[round.id] = round.number, obj), {});
     let allRounds = await Promise.all(requestsRounds);
     let data = [];
-    allRounds.forEach(r => {
+    for (const r of allRounds) {
         let round = rounds[r.data.query.roundNumber];
         r.data.answer.ranking.forEach(p => {
             if (p.name == "fredsan90" && round == 31) {
@@ -62,9 +75,30 @@ async function loadRankings() {
             data[p.id] = data[p.id] || {};
             data[p.id].name = p.name;
             data[p.id].rankings = data[p.id].rankings || [];
-            data[p.id].rankings[round - 1] = { "points": p.points, "position": p.position };
+            data[p.id].rankings[round - 1] = { "points": p.points, "position": p.position, "detailed": {} };
         });
-    });
+        let requestLineUps = r.data.answer.ranking.map(p => getRoundLineUp(p.id, r.data.query.roundNumber));
+        let allLineUps = await Promise.all(requestLineUps);
+        allLineUps.forEach(l => {
+            let roundRanking = data[l.data.query.userteamId].rankings[round - 1];
+            l.data.answer.players.filter(p => p.detailedPoints).forEach(p => {
+                if (!p.zeroPointsReason) {
+                    p.detailedPoints.po.filter(po => p.role === po.r).forEach(po => {
+                        roundRanking.detailed[po.mode] = po.p + (roundRanking.detailed[po.mode] || 0);
+                    });
+                }
+            });
+            if (l.data.answer.players.length < 11 && !l.data.answer.negative) {
+                let sub = 5 * (11 - l.data.answer.players.length);
+                roundRanking.detailed.press -= sub;
+                roundRanking.detailed.presstats -= sub;
+                roundRanking.detailed.picas -= sub;
+                roundRanking.detailed.stats -= sub;
+            }
+        });
+        console.log("finished round " + round)
+        await new Promise(r => setTimeout(r, 2000)); //wait 2 seconds
+    }
     let dataPositions = "User";
     for (let i = 1; i <= Object.keys(rounds).length; i++) {
         dataPositions += "," + i;

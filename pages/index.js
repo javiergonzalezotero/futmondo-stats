@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { getClausesData, getClausesGroupedByUser } from '../lib/clauses'
-import { getPointsData, getPositionsData, getAccPointsData, getAccPointsDiffData } from '../lib/points'
+import { getPointsData, getPositionsData, getAccPointsData, getAccPointsDiffData, getTotalPoints } from '../lib/points'
 import SimpleChart from '../components/SimpleChart'
 import SimpleTable from '../components/SimpleTable'
 import Container from '@material-ui/core/Container';
@@ -14,14 +14,15 @@ export async function getStaticProps() {
   const accPoints = getAccPointsData()
   const accPointsDiff = getAccPointsDiffData()
   const positions = getPositionsData()
+  const totalPoints = getTotalPoints()
   return {
     props: {
-      clauses, clausesGrouped, points, accPoints, accPointsDiff, positions
+      clauses, clausesGrouped, points, accPoints, accPointsDiff, positions, totalPoints
     }
   }
 }
 
-export default function Home({ clauses, clausesGrouped, points, accPoints, accPointsDiff, positions }) {
+export default function Home({ clauses, clausesGrouped, points, accPoints, accPointsDiff, positions, totalPoints }) {
   return (
     <div>
       <Head>
@@ -30,11 +31,14 @@ export default function Home({ clauses, clausesGrouped, points, accPoints, accPo
       </Head>
       <Container maxWidth={false}>
         <Grid container spacing={3}>
-          <Grid item xs={12} sm={6}>
+          <Grid item xs={12}>
             <SimpleTable param={clauses} pagination={true}></SimpleTable>
           </Grid>
-          <Grid item xs={12} sm={6}>
+          <Grid item xs={12}>
             <SimpleTable param={clausesGrouped} pagination={false}></SimpleTable>
+          </Grid>
+          <Grid item xs={12}>
+            <SimpleTable param={totalPoints} pagination={false}></SimpleTable>
           </Grid>
         </Grid>
 

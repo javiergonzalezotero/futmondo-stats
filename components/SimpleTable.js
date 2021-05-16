@@ -17,6 +17,10 @@ import { messages } from '../lib/messages'
 
 Numeral.locale('es-es');
 
+const isFloat = function(n){
+  return Number(n) === n && n % 1 !== 0;
+}
+
 const getColumns = function (data) {
   if (data && data[0]) {
     const column =
@@ -34,6 +38,12 @@ const getColumns = function (data) {
           }
         } else if (key === 'date') {
           colConfig.Cell = row => <Date dateString={row.value}></Date>
+        } else if (isFloat(data[0][key])){
+          colConfig.Cell = row => <div style={{ textAlign: "right" }}>{Numeral(row.value).format('0,0.0')}</div>
+          colConfig.align = 'right'
+          colConfig.sortType = (rowA, rowB, columnId) => {
+            return rowA.original[columnId] - rowB.original[columnId];
+          }
         }
         return colConfig;
       });
