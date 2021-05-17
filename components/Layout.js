@@ -1,18 +1,30 @@
+import React from 'react'
 import Head from 'next/head'
-import Link from 'next/link'
 import Container from '@material-ui/core/Container';
+import AppBar from './AppBar'
+import { makeStyles } from '@material-ui/core/styles';
 
-export default function Layout({ children }) {
+const useStyles = makeStyles((theme) => ({
+    root: {
+        marginTop: 10,
+    }
+}));
+
+export default function Layout(props) {
+    const { children } = props;
+    const classes = useStyles();
+
     return (
         <div>
             <Head>
                 <title>Futmondo Stats</title>
                 <link rel="icon" href="/favicon.ico" />
-                <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+                <meta name="viewport" content="width=device-width"></meta>
             </Head>
-            <Container maxWidth={false}>
+            <AppBar {...props}></AppBar>
+            <Container className={classes.root} maxWidth={false}>
                 {children}
             </Container>
-        </div>
+        </div >
     )
 }

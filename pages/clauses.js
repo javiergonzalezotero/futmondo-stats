@@ -16,13 +16,13 @@ export async function getStaticProps() {
 
 export default function Clauses({ clauses, clausesGrouped }) {
   return (
-    <Layout>
+    <Layout tab={1}>
       <Grid container spacing={3}>
         <Grid item xs={12}>
-          <SimpleTable param={clauses} pagination={true}></SimpleTable>
+          <SimpleTable rowsData={clauses} pagination={true}></SimpleTable>
         </Grid>
         <Grid item xs={12}>
-          <SimpleTable param={clausesGrouped} pagination={false}></SimpleTable>
+          <SimpleTable rowsData={clausesGrouped} pagination={false}></SimpleTable>
         </Grid>
       </Grid>
     </Layout>

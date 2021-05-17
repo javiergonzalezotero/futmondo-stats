@@ -17,7 +17,7 @@ import { messages } from '../lib/messages'
 
 Numeral.locale('es-es');
 
-const isFloat = function(n){
+const isFloat = function (n) {
   return Number(n) === n && n % 1 !== 0;
 }
 
@@ -38,7 +38,7 @@ const getColumns = function (data) {
           }
         } else if (key === 'date') {
           colConfig.Cell = row => <Date dateString={row.value}></Date>
-        } else if (isFloat(data[0][key])){
+        } else if (isFloat(data[0][key])) {
           colConfig.Cell = row => <div style={{ textAlign: "right" }}>{Numeral(row.value).format('0,0.0')}</div>
           colConfig.align = 'right'
           colConfig.sortType = (rowA, rowB, columnId) => {
@@ -60,13 +60,21 @@ const StyledTableCell = withStyles((theme) => ({
   }
 }))(TableCell);
 
-export default function SimpleTable({ param, pagination }) {
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    width: "100%",
+    overflowX: "auto"
+  }
+}));
+
+export default function SimpleTable({ rowsData, pagination }) {
 
   const data = React.useMemo(
-    () => param, []
+    () => rowsData, []
   )
 
-  const columns = React.useMemo(() => getColumns(param), [])
+  const columns = React.useMemo(() => getColumns(rowsData), [])
 
   const {
     getTableProps,
@@ -90,6 +98,8 @@ export default function SimpleTable({ param, pagination }) {
 
   const rowsToShow = pagination ? page : rows;
 
+  const classes = useStyles();
+
   return (
     <>
       {pagination && <GlobalFilter
@@ -98,48 +108,50 @@ export default function SimpleTable({ param, pagination }) {
         setGlobalFilter={setGlobalFilter}
       />
       }
-      <MaUTable size="small" {...getTableProps()}>
-        <TableHead>
-          {headerGroups.map(headerGroup => (
-            <TableRow {...headerGroup.getHeaderGroupProps()}>
-              {headerGroup.headers.map(column => (
-                <StyledTableCell align={column.align} {...column.getHeaderProps(column.getSortByToggleProps())}>
-                  {column.render('Header')}
-                  <TableSortLabel
-                    active={column.isSorted}
-                    direction={column.isSortedDesc ? 'desc' : 'asc'}
-                  />
-                </StyledTableCell>
-              ))}
-            </TableRow>
-          ))}
-        </TableHead>
-        <TableBody {...getTableBodyProps()}>
-          {rowsToShow.map(row => {
-            prepareRow(row)
-            return (
-              <TableRow {...row.getRowProps()}>
-                {row.cells.map(cell => {
-                  return (
-                    <TableCell {...cell.getCellProps()}>
-                      {cell.render('Cell')}
-                    </TableCell>
-                  )
-                })}
+      <div className={classes.root}>
+        <MaUTable size="small" {...getTableProps()}>
+          <TableHead>
+            {headerGroups.map(headerGroup => (
+              <TableRow {...headerGroup.getHeaderGroupProps()}>
+                {headerGroup.headers.map(column => (
+                  <StyledTableCell align={column.align} {...column.getHeaderProps(column.getSortByToggleProps())}>
+                    {column.render('Header')}
+                    <TableSortLabel
+                      active={column.isSorted}
+                      direction={column.isSortedDesc ? 'desc' : 'asc'}
+                    />
+                  </StyledTableCell>
+                ))}
               </TableRow>
-            )
-          })}
-        </TableBody>
-        {pagination &&
-          <TablePagination
-            count={data.length}
-            rowsPerPage={pageSize}
-            page={pageIndex}
-            gotoPage={gotoPage}
-            setPageSize={setPageSize}>
-          </TablePagination>
-        }
-      </MaUTable>
+            ))}
+          </TableHead>
+          <TableBody {...getTableBodyProps()}>
+            {rowsToShow.map(row => {
+              prepareRow(row)
+              return (
+                <TableRow {...row.getRowProps()}>
+                  {row.cells.map(cell => {
+                    return (
+                      <TableCell {...cell.getCellProps()}>
+                        {cell.render('Cell')}
+                      </TableCell>
+                    )
+                  })}
+                </TableRow>
+              )
+            })}
+          </TableBody>
+          {pagination &&
+            <TablePagination
+              count={data.length}
+              rowsPerPage={pageSize}
+              page={pageIndex}
+              gotoPage={gotoPage}
+              setPageSize={setPageSize}>
+            </TablePagination>
+          }
+        </MaUTable>
+      </div>
     </>
   )
 }
