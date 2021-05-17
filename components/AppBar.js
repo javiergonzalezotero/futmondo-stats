@@ -66,8 +66,8 @@ export default function AppBar(props) {
                         <Typography variant="h6">
                             Futmondo FIC
                             </Typography>
-                        <Tabs value={props.tab}>
-                            <Hidden smDown>
+                        <Hidden smDown>
+                            <Tabs value={props.tab}>
                                 <Link href="/">
                                     <Tab selected={props.tab == 0} className={classes.labelIcon} label={
                                         <>
@@ -80,10 +80,12 @@ export default function AppBar(props) {
                                     <Tab className={classes.labelIcon}
                                         selected={props.tab == 1}
                                         icon={<AttachMoneyIcon />}
-                                        label="Cláusulas" />
+                                        label="Mercado" />
                                 </Link>
-                            </Hidden>
-                            <Hidden mdUp>
+                            </Tabs>
+                        </Hidden>
+                        <Hidden mdUp>
+                            <Tabs value={props.tab}>
                                 <Link href="/">
                                     <Tab selected={props.tab == 0} label={
                                         <Icon className={'MuiSvgIcon-root'} height={24} icon={medalIcon} />
@@ -94,9 +96,8 @@ export default function AppBar(props) {
                                         selected={props.tab == 1}
                                         icon={<AttachMoneyIcon />} />
                                 </Link>
-
-                            </Hidden>
-                        </Tabs>
+                            </Tabs>
+                        </Hidden>
                         <div className={classes.root} />
                         <IconButton color="inherit" href="https://github.com/javiergonzalezotero/futmondo-stats" target="_blank" rel="noopener">
                             <GitHubIcon ></GitHubIcon>

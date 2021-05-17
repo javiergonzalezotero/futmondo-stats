@@ -8,8 +8,10 @@ import TableCell from '@material-ui/core/TableCell'
 import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
 import TableSortLabel from '@material-ui/core/TableSortLabel'
+import Toolbar from '@material-ui/core/Toolbar';
 import TablePagination from './TablePagination'
 import GlobalFilter from './GlobalFilter'
+import Typography from '@material-ui/core/Typography';
 import Date from './Date'
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import { messages } from '../lib/messages'
@@ -65,10 +67,13 @@ const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
     overflowX: "auto"
-  }
+  },
+  grow: {
+    flexGrow: 1,
+  },
 }));
 
-export default function SimpleTable({ rowsData, pagination }) {
+export default function SimpleTable({ rowsData, pagination, tableTitle }) {
 
   const data = React.useMemo(
     () => rowsData, []
@@ -102,12 +107,20 @@ export default function SimpleTable({ rowsData, pagination }) {
 
   return (
     <>
-      {pagination && <GlobalFilter
-        preGlobalFilteredRows={preGlobalFilteredRows}
-        globalFilter={globalFilter}
-        setGlobalFilter={setGlobalFilter}
-      />
-      }
+      <Toolbar>
+        {tableTitle &&
+          <Typography variant="h5">
+            {tableTitle}
+          </Typography>
+        }
+        <div className={classes.grow} />
+        {pagination && <GlobalFilter
+          preGlobalFilteredRows={preGlobalFilteredRows}
+          globalFilter={globalFilter}
+          setGlobalFilter={setGlobalFilter}
+        />
+        }
+      </Toolbar>
       <div className={classes.root}>
         <MaUTable size="small" {...getTableProps()}>
           <TableHead>

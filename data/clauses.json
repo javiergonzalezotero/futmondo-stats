@@ -1,5 +1,19 @@
 [
   {
+    "payer": "Chris Zas",
+    "seller": "fredsan90",
+    "amount": 59779884,
+    "player": "Fede Valverde",
+    "date": "2021-05-17T12:51:30.461Z"
+  },
+  {
+    "payer": "Chris Zas",
+    "seller": "Javier González Otero",
+    "amount": 46001951,
+    "player": "Militao",
+    "date": "2021-05-17T12:44:07.012Z"
+  },
+  {
     "payer": "La Cajina",
     "seller": "Javier González Otero",
     "amount": 193530493,

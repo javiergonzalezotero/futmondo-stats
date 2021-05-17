@@ -6,6 +6,7 @@ const endpointRounds = "http://www.futmondo.com/1/userteam/rounds";
 const endpointRound = "http://www.futmondo.com/1/ranking/round";
 const endpointLocker = "http://www.futmondo.com/2/locker/news";
 const endpointLineUp = "http://www.futmondo.com/1/userteam/roundlineup";
+const endpointTransfers = "http://www.futmondo.com/1/locker/pressroom";
 const championshipId = config.championshipId;
 const userteamId = config.userteamId;
 const requestConfig = {
@@ -153,13 +154,57 @@ async function loadClauses(from) {
     }
 }
 
+async function loadTransfers(clauses, from) {
+    let postData = {
+        header: '',
+        answer: "",
+        query: {
+            "championshipId": championshipId
+        }
+    };
+    if (from) {
+        postData.query.from = from;
+    }
+    let res = await axios.post(endpointTransfers, postData, requestConfig);
+    res.data.answer.news.forEach(n => {
+        let tr = { amount: n.price, player: n._player.name, date: n.created };
+        if (n._buyer) {
+            tr.payer = n._buyer.name;
+        }
+        if (n._seller) {
+            tr.seller = n._seller.name;
+        }
+        if (!tr.seller || !tr.payer
+            || clauses.filter(c => c.amount == tr.amount && c.payer == tr.payer && c.seller == tr.seller).length == 0) {
+            transfers.push(tr);
+        }
+    });
+    if (res.data.answer.news.length == 150) {
+        console.log("load transfers")
+        await new Promise(r => setTimeout(r, 1000)); //wait 1 seconds
+        loadTransfers(clauses, res.data.answer.news[149]._id);
+    } else {
+        writeFile('db/transfers.json', JSON.stringify(transfers, null, 2));
+    }
+}
 
+let clauses = [];
+let transfers = [];
+async function loadClausesAndTransfers(){
+    console.log("start")
+    await loadClauses().catch(error => {
+        console.error(error)
+    });
+    console.log(clauses.length)
+    loadTransfers(clauses).catch(error => {
+        console.error(error)
+    });
+}
 
 loadRankings().catch(error => {
     console.error(error)
 });
 
-let clauses = [];
-loadClauses().catch(error => {
-    console.error(error)
-});
+loadClausesAndTransfers();
+
+
