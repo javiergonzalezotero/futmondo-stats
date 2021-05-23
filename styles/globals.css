@@ -14,3 +14,12 @@ a {
 * {
   box-sizing: border-box;
 }
+
+footer {
+  box-sizing: border-box;
+  height: 90px;
+  background-color: #eee;
+  border-top: 1px solid #e0e0e0;
+  padding-top: 30px;
+  margin-top: 15px;
+}
