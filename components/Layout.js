@@ -27,6 +27,11 @@ export default function Layout(props) {
                 <title>Futmondo FIC Stats</title>
                 <link rel="icon" href="/favicon.ico" />
                 <meta name="viewport" content="width=device-width"></meta>
+                <meta name="description" content="Pequeño resumen de la temporada Futmondo FIC" />
+                <meta name="twitter:title" content="Futmondo FIC Stats" />
+                <meta property="og:description" content="Pequeño resumen de la temporada Futmondo FIC" />
+                <meta property="og:title" content="Futmondo FIC Stats" />
+                <meta name="twitter:description" content="Pequeño resumen de la temporada Futmondo FIC" />
             </Head>
             <AppBar {...props}></AppBar>
             <Container className={classes.root} maxWidth={false}>
