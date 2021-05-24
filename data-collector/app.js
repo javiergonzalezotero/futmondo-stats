@@ -144,8 +144,10 @@ async function loadClauses(from) {
         let clause = { payer: parts[0], seller: parts[2], amount: amount, player: player, date: n.created };
         clauses.push(clause);
     });
-    if (res.data.answer.news.length == 200) {
-        loadClauses(res.data.answer.news[199]._id);
+    console.log(res.data.answer.news.length)
+    if (res.data.answer.news.length >= 200) {
+        console.log("load clauses")
+        await loadClauses(res.data.answer.news[res.data.answer.news.length - 1]._id);
     } else {
         let dataClauses = "Payer,Seller,Amount,Player\n";
         dataClauses += clauses.map(c => `${c.payer},${c.seller},${c.amount},${c.player}`).join("\n");
@@ -179,10 +181,10 @@ async function loadTransfers(clauses, from) {
             transfers.push(tr);
         }
     });
-    if (res.data.answer.news.length == 150) {
+    if (res.data.answer.news.length >= 150) {
         console.log("load transfers")
         await new Promise(r => setTimeout(r, 1000)); //wait 1 seconds
-        loadTransfers(clauses, res.data.answer.news[149]._id);
+        loadTransfers(clauses, res.data.answer.news[res.data.answer.news.length - 1]._id);
     } else {
         writeFile('db/transfers.json', JSON.stringify(transfers, null, 2));
     }
@@ -190,7 +192,7 @@ async function loadTransfers(clauses, from) {
 
 let clauses = [];
 let transfers = [];
-async function loadClausesAndTransfers(){
+async function loadClausesAndTransfers() {
     console.log("start")
     await loadClauses().catch(error => {
         console.error(error)
